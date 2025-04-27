@@ -31,8 +31,8 @@ class AuthController extends Controller
             ]
         );
 
-        $username = $request->input('text_username');
-        $password = $request->input('text_password');
+        $username = $request->text_username;
+        $password = $request->text_password;
 
         //check if users exists
         $user = User::where('username', $username)
@@ -66,7 +66,7 @@ class AuthController extends Controller
             ]
         ]);
 
-        return redirect()->to('/login');
+        return redirect()->route('login');
     }
 
     public function logout()
